@@ -1,7 +1,51 @@
 rock_library(artoolkit
-    SOURCES Dummy.cpp
-    HEADERS Dummy.hpp)
+    SOURCES arDetectMarker.c
+			arDetectMarker2.c
+			arGetCode.c
+			arGetMarkerInfo.c
+			arGetTransMat.c
+			arGetTransMat2.c
+			arGetTransMat3.c
+			arGetTransMatCont.c
+			arLabeling.c
+			arUtil.c
+			mAlloc.c
+			mAllocDup.c
+			mAllocInv.c
+			mAllocMul.c
+			mAllocTrans.c
+			mAllocUnit.c
+			mDet.c
+			mDisp.c
+			mDup.c
+			mFree.c
+			mInv.c
+			mMul.c
+			mPCA.c
+			mSelfInv.c
+			mTrans.c
+			mUnit.c
+			paramChangeSize.c
+			paramDecomp.c
+			paramDisp.c
+			paramDistortion.c
+			paramFile.c
+			paramGet.c
+			vAlloc.c
+			vDisp.c
+			vFree.c
+			vHouse.c
+			vInnerP.c
+			vTridiag.c
+    HEADERS ar.h
+			arMulti.h
+			arvrml.h
+			config.h
+			gsub.h
+			gsubUtil.h
+			gsub_lite.h
+			matrix.h
+			param.h
+			video.h)
 
-rock_executable(artoolkit_bin Main.cpp
-    DEPS artoolkit)
-
+target_link_libraries(artoolkit m)

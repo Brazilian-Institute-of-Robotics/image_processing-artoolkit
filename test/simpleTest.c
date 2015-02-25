@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <OpenGL/gl.h>
-#include <GLUT/glut.h>
+//#include <OpenGL/gl.h>
+//#include <GLUT/glut.h>
 
-#include <AR/gsub.h>
-#include <AR/video.h>
-#include <AR/param.h>
-#include <AR/ar.h>
+//#include "artoolkit/gsub.h"
+//#include "artoolkit/video.h"
+#include "artoolkit/param.h"
+#include "artoolkit/ar.h"
 
 //
 // Camera configuration.
@@ -39,11 +39,12 @@ static void   draw( void );
 
 int main(int argc, char **argv)
 {
-	glutInit(&argc, argv);
+//	glutInit(&argc, argv);
 	init();
 
-    arVideoCapStart();
-    argMainLoop( NULL, keyEvent, mainLoop );
+//    arVideoCapStart();
+//    argMainLoop( NULL, keyEvent, mainLoop );
+    mainLoop();
 	return (0);
 }
 
@@ -66,15 +67,15 @@ static void mainLoop(void)
     int             j, k;
 
     /* grab a vide frame */
-    if( (dataPtr = (ARUint8 *)arVideoGetImage()) == NULL ) {
-        arUtilSleep(2);
-        return;
-    }
+//    if( (dataPtr = (ARUint8 *)arVideoGetImage()) == NULL ) {
+//        arUtilSleep(2);
+//        return;
+//    }
     if( count == 0 ) arUtilTimerReset();
     count++;
 
-    argDrawMode2D();
-    argDispImage( dataPtr, 0,0 );
+//    argDrawMode2D();
+//    argDispImage( dataPtr, 0,0 );
 
     /* detect the markers in the video frame */
     if( arDetectMarker(dataPtr, thresh, &marker_info, &marker_num) < 0 ) {
@@ -82,7 +83,7 @@ static void mainLoop(void)
         exit(0);
     }
 
-    arVideoCapNext();
+//    arVideoCapNext();
 
     /* check for object visibility */
     k = -1;
@@ -93,7 +94,7 @@ static void mainLoop(void)
         }
     }
     if( k == -1 ) {
-        argSwapBuffers();
+//        argSwapBuffers();
         return;
     }
 
@@ -102,17 +103,17 @@ static void mainLoop(void)
 
     draw();
 
-    argSwapBuffers();
+//    argSwapBuffers();
 }
 
 static void init( void )
 {
     ARParam  wparam;
-	
+
     /* open the video path */
-    if( arVideoOpen( vconf ) < 0 ) exit(0);
-    /* find the size of the window */
-    if( arVideoInqSize(&xsize, &ysize) < 0 ) exit(0);
+//    if( arVideoOpen( vconf ) < 0 ) exit(0);
+//    /* find the size of the window */
+//    if( arVideoInqSize(&xsize, &ysize) < 0 ) exit(0);
     printf("Image size (x,y) = (%d,%d)\n", xsize, ysize);
 
     /* set the initial camera parameters */
@@ -131,51 +132,51 @@ static void init( void )
     }
 
     /* open the graphics window */
-    argInit( &cparam, 1.0, 0, 0, 0, 0 );
+//    argInit( &cparam, 1.0, 0, 0, 0, 0 );
 }
 
 /* cleanup function called when program exits */
 static void cleanup(void)
 {
-    arVideoCapStop();
-    arVideoClose();
-    argCleanup();
+//    arVideoCapStop();
+//    arVideoClose();
+//    argCleanup();
 }
 
 static void draw( void )
 {
-    double    gl_para[16];
-    GLfloat   mat_ambient[]     = {0.0, 0.0, 1.0, 1.0};
-    GLfloat   mat_flash[]       = {0.0, 0.0, 1.0, 1.0};
-    GLfloat   mat_flash_shiny[] = {50.0};
-    GLfloat   light_position[]  = {100.0,-200.0,200.0,0.0};
-    GLfloat   ambi[]            = {0.1, 0.1, 0.1, 0.1};
-    GLfloat   lightZeroColor[]  = {0.9, 0.9, 0.9, 0.1};
-
-    argDrawMode3D();
-    argDraw3dCamera( 0, 0 );
-    glClearDepth( 1.0 );
-    glClear(GL_DEPTH_BUFFER_BIT);
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LEQUAL);
-
-    /* load the camera transformation matrix */
-    argConvGlpara(patt_trans, gl_para);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadMatrixd( gl_para );
-
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, ambi);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightZeroColor);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_flash);
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_flash_shiny);
-    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-    glMatrixMode(GL_MODELVIEW);
-    glTranslatef( 0.0, 0.0, 25.0 );
-    glutSolidCube(50.0);
-    glDisable( GL_LIGHTING );
-
-    glDisable( GL_DEPTH_TEST );
+//    double    gl_para[16];
+//    GLfloat   mat_ambient[]     = {0.0, 0.0, 1.0, 1.0};
+//    GLfloat   mat_flash[]       = {0.0, 0.0, 1.0, 1.0};
+//    GLfloat   mat_flash_shiny[] = {50.0};
+//    GLfloat   light_position[]  = {100.0,-200.0,200.0,0.0};
+//    GLfloat   ambi[]            = {0.1, 0.1, 0.1, 0.1};
+//    GLfloat   lightZeroColor[]  = {0.9, 0.9, 0.9, 0.1};
+//
+//    argDrawMode3D();
+//    argDraw3dCamera( 0, 0 );
+//    glClearDepth( 1.0 );
+//    glClear(GL_DEPTH_BUFFER_BIT);
+//    glEnable(GL_DEPTH_TEST);
+//    glDepthFunc(GL_LEQUAL);
+//
+//    /* load the camera transformation matrix */
+//    argConvGlpara(patt_trans, gl_para);
+//    glMatrixMode(GL_MODELVIEW);
+//    glLoadMatrixd( gl_para );
+//
+//    glEnable(GL_LIGHTING);
+//    glEnable(GL_LIGHT0);
+//    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+//    glLightfv(GL_LIGHT0, GL_AMBIENT, ambi);
+//    glLightfv(GL_LIGHT0, GL_DIFFUSE, lightZeroColor);
+//    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_flash);
+//    glMaterialfv(GL_FRONT, GL_SHININESS, mat_flash_shiny);
+//    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+//    glMatrixMode(GL_MODELVIEW);
+//    glTranslatef( 0.0, 0.0, 25.0 );
+//    glutSolidCube(50.0);
+//    glDisable( GL_LIGHTING );
+//
+//    glDisable( GL_DEPTH_TEST );
 }
