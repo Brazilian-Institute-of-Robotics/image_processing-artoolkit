@@ -11,7 +11,7 @@
 *******************************************************/
 #include <stdio.h>
 #include <math.h>
-#include <AR/matrix.h>
+#include "matrix.h"
 
 int arMatrixMul(ARMat *dest, ARMat *a, ARMat *b)
 {

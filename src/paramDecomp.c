@@ -13,8 +13,8 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <AR/param.h>
-#include <AR/matrix.h>
+#include "param.h"
+#include "matrix.h"
 
 static double norm( double a, double b, double c );
 static double dot( double a1, double a2, double a3,

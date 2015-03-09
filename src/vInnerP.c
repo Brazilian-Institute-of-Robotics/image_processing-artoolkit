@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include <AR/matrix.h>
+#include "matrix.h"
 
 double arVecInnerproduct( ARVec *x, ARVec *y )
 {

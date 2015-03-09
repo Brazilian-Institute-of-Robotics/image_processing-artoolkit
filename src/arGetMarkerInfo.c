@@ -9,7 +9,7 @@
  *
 *******************************************************/
 
-#include <AR/ar.h>
+#include "ar.h"
 
 static ARMarkerInfo    marker_infoL[AR_SQUARE_MAX];
 static ARMarkerInfo    marker_infoR[AR_SQUARE_MAX];

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#include <AR/matrix.h>
+#include "matrix.h"
 
 #define     VZERO           1e-16
 #define     EPS             1e-6

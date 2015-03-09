@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #endif
 #include <math.h>
-#include <AR/matrix.h>
+#include "matrix.h"
 
 ARVec *arVecAlloc( int clm )
 {

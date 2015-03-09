@@ -75,50 +75,8 @@ extern "C" {
 //	Public includes.
 // ============================================================================
 
-#include <AR/config.h>
-#include <AR/ar.h>
-
-// ============================================================================
-//	Public types and defines.
-// ============================================================================
-
-#ifdef _WIN32
-#  include <AR/sys/videoWin32DirectShow.h>
-#  ifdef LIBARVIDEO_EXPORTS
-#    define AR_DLL_API __declspec(dllexport)
-#  else
-#    ifdef _DLL
-#      define AR_DLL_API __declspec(dllimport)
-#    else
-#      define AR_DLL_API extern
-#    endif
-#  endif
-#else
-#  define AR_DLL_API
-#endif
-
-#ifdef __linux
-#  ifdef AR_INPUT_V4L
-#    include <AR/sys/videoLinuxV4L.h>
-#  endif
-#  ifdef  AR_INPUT_DV
-#    include <AR/sys/videoLinuxDV.h>
-#  endif
-#  ifdef  AR_INPUT_1394CAM
-#    include <AR/sys/videoLinux1394Cam.h>
-#  endif
-#  ifdef  AR_INPUT_GSTREAMER
-#    include <AR/sys/videoGStreamer.h>
-#  endif
-#endif
-
-#ifdef __sgi
-#  include <AR/sys/videoSGI.h>
-#endif
-
-#ifdef __APPLE__
-#  include <AR/sys/videoMacOSX.h>
-#endif
+#include "config.h"
+#include "ar.h"
 
 // ============================================================================
 //	Public globals.

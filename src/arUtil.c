@@ -18,9 +18,9 @@
 #else
 #include <sys/time.h>
 #endif
-#include <AR/param.h>
-#include <AR/matrix.h>
-#include <AR/ar.h>
+#include "param.h"
+#include "matrix.h"
+#include "ar.h"
 
 
 int        arDebug                 = 0;

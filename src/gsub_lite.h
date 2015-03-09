@@ -132,9 +132,9 @@ extern "C" {
 #  endif
 #  include <GL/gl.h>
 #endif
-#include <AR/config.h>
-#include <AR/ar.h>		// ARUint8, AR_PIXEL_FORMAT, arDebug, arImage.
-#include <AR/param.h>	// ARParam, arParamDecompMat(), arParamObserv2Ideal()
+#include "config.h"
+#include "ar.h"		// ARUint8, AR_PIXEL_FORMAT, arDebug, arImage.
+#include "param.h"	// ARParam, arParamDecompMat(), arParamObserv2Ideal()
 
 // ============================================================================
 //	Public types and definitions.

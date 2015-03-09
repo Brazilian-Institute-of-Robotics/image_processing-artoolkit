@@ -11,8 +11,8 @@
 
 #include <stdlib.h>
 #include <math.h>
-#include <AR/ar.h>
-#include <AR/matrix.h>
+#include "ar.h"
+#include "matrix.h"
 
 #define P_MAX       500
 

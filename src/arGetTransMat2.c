@@ -10,8 +10,8 @@
 *******************************************************/
 #include <stdlib.h>
 #include <math.h>
-#include <AR/ar.h>
-#include <AR/matrix.h>
+#include "ar.h"
+#include "matrix.h"
 
 #define MD_PI         3.14159265358979323846
 

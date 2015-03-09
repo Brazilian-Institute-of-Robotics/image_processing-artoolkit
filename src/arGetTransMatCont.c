@@ -8,7 +8,7 @@
  *
 *******************************************************/
 
-#include <AR/ar.h>
+#include "ar.h"
 
 static double arGetTransMatContSub( ARMarkerInfo *marker_info, double prev_conv[3][4],
                                     double center[2], double width, double conv[3][4] );

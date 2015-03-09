@@ -17,7 +17,7 @@
 #else
 #include <stdlib.h>
 #endif
-#include <AR/matrix.h>
+#include "matrix.h"
 
 int arVecFree( ARVec *v )
 {

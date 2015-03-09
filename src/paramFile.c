@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 #include <stdarg.h>
-#include <AR/param.h>
+#include "param.h"
 
 #ifdef AR_LITTLE_ENDIAN
 typedef union {

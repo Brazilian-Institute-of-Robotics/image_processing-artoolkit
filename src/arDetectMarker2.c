@@ -9,7 +9,7 @@
  *
 *******************************************************/
 
-#include <AR/ar.h>
+#include "ar.h"
 
 static int check_square( int area, ARMarkerInfo2 *marker_info2, double factor );
 

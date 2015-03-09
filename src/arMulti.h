@@ -37,9 +37,9 @@ extern "C" {
 // ============================================================================
 
 #include <stdio.h>
-#include <AR/config.h>
-#include <AR/param.h>
-#include <AR/ar.h>
+#include "config.h"
+#include "param.h"
+#include "ar.h>
 
 // ============================================================================
 //	Public types and defines.

@@ -114,7 +114,7 @@ static void init( void )
 //    if( arVideoOpen( vconf ) < 0 ) exit(0);
 //    /* find the size of the window */
 //    if( arVideoInqSize(&xsize, &ysize) < 0 ) exit(0);
-    printf("Image size (x,y) = (%d,%d)\n", xsize, ysize);
+//    printf("Image size (x,y) = (%d,%d)\n", xsize, ysize);
 
     /* set the initial camera parameters */
     if( arParamLoad(cparam_name, 1, &wparam) < 0 ) {

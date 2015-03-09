@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <AR/matrix.h>
+#include "matrix.h"
 
 int arVecTridiagonalize( ARMat *a, ARVec *d, ARVec *e )
 {

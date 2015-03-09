@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <AR/matrix.h>
+#include "matrix.h"
 
 double arVecHousehold( ARVec *x )
 {

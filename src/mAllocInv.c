@@ -16,7 +16,7 @@
 #else
 #include <stdlib.h>
 #endif
-#include <AR/matrix.h>
+#include "matrix.h"
 
 ARMat *arMatrixAllocInv(ARMat *source)
 {

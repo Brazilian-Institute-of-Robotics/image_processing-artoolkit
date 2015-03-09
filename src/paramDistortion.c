@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <AR/param.h>
+#include "param.h"
 
 #define  PD_LOOP   3
 

@@ -13,8 +13,8 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <AR/matrix.h>
-#include <AR/param.h>
+#include "matrix.h"
+#include "param.h"
 
 #define  AR_PARAM_CDMIN      12
 

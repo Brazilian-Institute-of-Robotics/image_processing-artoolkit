@@ -11,8 +11,8 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <AR/ar.h>
-#include <AR/matrix.h>
+#include "ar.h"
+#include "matrix.h"
 
 #define   DEBUG        0
 #define   EVEC_MAX     10

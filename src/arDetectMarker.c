@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <AR/ar.h>
+#include "ar.h"
 
 static ARMarkerInfo2          *marker_info2;
 static ARMarkerInfo           *wmarker_info;
@@ -66,21 +66,17 @@ int arDetectMarker( ARUint8 *dataPtr, int thresh,
     double                 diff, diffmin;
     int                    cid, cdir;
     int                    i, j, k;
-
+    
     *marker_num = 0;
-
     limage = arLabeling( dataPtr, thresh,
                          &label_num, &area, &pos, &clip, &label_ref );
     if( limage == 0 )    return -1;
-
     marker_info2 = arDetectMarker2( limage, label_num, label_ref,
                                     area, pos, clip, AR_AREA_MAX, AR_AREA_MIN,
                                     1.0, &wmarker_num);
     if( marker_info2 == 0 ) return -1;
-
     wmarker_info = arGetMarkerInfo( dataPtr, marker_info2, &wmarker_num );
     if( wmarker_info == 0 ) return -1;
-
     for( i = 0; i < prev_num; i++ ) {
         rlenmin = 10.0;
         cid = -1;
@@ -117,7 +113,6 @@ int arDetectMarker( ARUint8 *dataPtr, int thresh,
             wmarker_info[cid].dir = cdir;
         }
     }
-
     for( i = 0; i < wmarker_num; i++ ) {
 /*
 	printf("cf = %g\n", wmarker_info[i].cf);

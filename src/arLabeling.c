@@ -13,7 +13,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <AR/ar.h>
+#include "ar.h"
 
 #ifdef _WIN32
 #  include <windows.h>
@@ -135,6 +135,7 @@ static ARInt16 *labeling2( ARUint8 *image, int thresh,
     int       *warea;
     int       *wclip;
     double    *wpos;
+
 #ifdef USE_OPTIMIZATIONS
 	int		  pnt2_index;   // [tp]
 #endif
@@ -157,7 +158,6 @@ static ARInt16 *labeling2( ARUint8 *image, int thresh,
         wclip   = &wclipR[0];
         wpos    = &wposR[0];
     }
-
     if (arImageProcMode == AR_IMAGE_PROC_IN_HALF) {
         lxsize = arImXsize / 2;
         lysize = arImYsize / 2;
@@ -165,10 +165,8 @@ static ARInt16 *labeling2( ARUint8 *image, int thresh,
         lxsize = arImXsize;
         lysize = arImYsize;
     }
-
     pnt1 = &l_image[0]; // Leftmost pixel of top row of image.
     pnt2 = &l_image[(lysize - 1)*lxsize]; // Leftmost pixel of bottom row of image.
-
 #ifndef USE_OPTIMIZATIONS
 	for(i = 0; i < lxsize; i++) {
         *(pnt1++) = *(pnt2++) = 0;
@@ -211,7 +209,6 @@ static ARInt16 *labeling2( ARUint8 *image, int thresh,
         pnt2 += lxsize;
     }
 #endif
-
     wk_max = 0;
     pnt2 = &(l_image[lxsize+1]);
     if (arImageProcMode == AR_IMAGE_PROC_IN_HALF) {
